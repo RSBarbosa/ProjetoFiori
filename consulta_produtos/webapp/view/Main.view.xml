@@ -1,0 +1,42 @@
+<mvc:View controllerName="consultaprodutos.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+
+    <Page id="page" title="{i18n>title}">
+        <content >
+            <FlexBox id="flexbox" justifyContent="Center">
+                <Input  id="inpBusca"/>
+                <Button id="button" text="buscar" press="onPressBuscar"/>
+            </FlexBox>
+
+            <VBox id="productBox" visible="true">
+                <ObjectHeader id="object1" 
+                title="{ModeloProduto>/product/product_name}"
+                number="{ModeloProduto>/product/quantity}">
+                <attributes>
+                    <ObjectAttribute id="attribute1"  title="Código de Barras" text="{ModeloProduto>/code}"/>
+                    <ObjectAttribute id="attribute2" title="Marca" text="{ModeloProduto>/product/brands}"/>
+                </attributes>
+            </ObjectHeader>
+
+            <Panel  id="panel" headerText="Informações">
+                    <content>
+                        <HBox id="hbox" >
+                            <Image id="imag" src="{ModeloProduto>/product/image_front_url}" width="5em" press="onClickImage"/>
+                                <VBox id="vbox" >
+                                    <ObjectAttribute id="attribute3"  title="Categoria" text="{ModeloProduto>/product/categories}"/>
+                                    <ObjectAttribute  id="attribute4"  title="Avisos" text="{ModeloProduto>/product/ecoscore_extended_data/impact/warnings}"/>
+                                    <ObjectAttribute  id="attribute5" title="Local de fabricação" text="{ModeloProduto>/product/manufacturing_places}"/>
+                                        
+                                </VBox>
+                        </HBox>
+                    </content>
+
+            </Panel>
+
+            </VBox>
+
+
+        </content >
+    </Page>
+</mvc:View>
